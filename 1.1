@@ -1,0 +1,38 @@
+/Victor Rogers
+/CS310
+/Program 1.3
+          ORG       100
+          Load      Z     /Load value to be used as counter_1
+          Subt      One
+          Store     Ctr_1 /Store as counter_1
+Loop1,    Load      Y     /Load value to be used as counter_2
+          Store     Ctr_2 /Store as counter_2
+Loop2,    Load      Sum   /Load the sum
+          Add       X     /Add x to Sum
+          Store     Sum   /Store result in Sum 
+          Load      Ctr_2
+          Subt      One   /Decrement counter
+          Store     Ctr_2 /Store counter
+          SkipCond  400   /If AC=0 (Ctr_2 = 0), stop looping
+          Jump      Loop2 /If AC not 0, continue looping
+Endloop2, Load      Sum
+          Store     X     /Store sum in X
+          Load      Y	
+          Subt      One   /Decrement Y for indexing purposes
+          Store     Y
+          Load      Ctr_1 
+          Subt      One   /Decrementing for indexing purposes
+          Store     Ctr_1 
+          SkipCond  400   /Exit if counter is at 0
+          Jump      Loop1
+          Load      Sum   /Load and output the sum
+          Output
+          Halt
+Ctr_1,    Dec       0     /Counter_1
+Ctr_2,    Dec       0     /Counter_2
+X,        Dec       5     /Constant -5 to be used per ASSN instructions
+Y,        Dec       5     /Absolute value of X used for multiplication
+Z,        Dec       3     /Constant 3 to be used per ASSN instructions
+Sum,      Dec       0     /Sum variable to maintain count of sum
+One,      Dec       1     /Constant 1
+          End
