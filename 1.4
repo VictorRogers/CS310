@@ -1,0 +1,35 @@
+/Victor Rogers
+/CS310
+/Program 1.4
+		ORG		100
+		Input			
+		Store		x	/User inputs upper bound for counter
+		Load		Sum	
+		Add		y	/Lower bound added to sum
+		Store		Sum	
+		Load		One	
+		Store		Ctr	/Initiallizing counter
+Loop,		Load		Ctr	
+		Subt		x 
+		SkipCond	000	/If (Counter - upperbound) < 0
+		Jump		Endloop	
+		Load		y	
+		Add		Ten	/Increment 10 from the lower bound
+		Store		y
+		Load		Sum
+		Add		y	/Add incremented value to the sum
+		Store		Sum
+		Load		Ctr
+		Add		One	/Increment counter
+		Store		Ctr
+		Jump		Loop	/Continue loop
+Endloop,	Load		Sum
+		Output
+		Halt
+One,		Dec		1	/Constant 1
+Ten,		Dec		10	/Constant 10
+Ctr,		Dec		0	/Loop counter
+Sum,		Dec		0	/Variable for holding sum
+x,		Dec		0	/User defined upper bound
+y,		Dec		12	/Lower bound
+		END
