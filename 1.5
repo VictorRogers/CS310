@@ -1,0 +1,40 @@
+/Victor Rogers
+/CS310
+/Program 1.5
+		ORG		100
+		Input
+		Store		N	/User input stored in N
+		Store		X	
+LoopOne,	Load		Sum	
+		SkipCond	800	/Initial loop add with N - Afterwords add from sum
+		Load		N	/Skip after initial loop
+		Store		Ctr	/Iterate Sum or N times
+		Load		X	
+		Subt		One
+		Store		X
+		Subt		One
+		SkipCond	800	/Remain in loop while x is geq zero
+		Jump		EndLoopOne
+		Load		Zero	
+		Store		Sum	/Zero out the sum variable for next iteration
+LoopTwo,	Load		Sum
+		Add		X	/Add X to sum for next iteration
+		Store		Sum	
+		Load		Ctr
+		Subt		One	/Decrement the counter by one
+		Store		Ctr	
+		SkipCond	400	/Exit if counter is at 0
+		Jump		LoopTwo	/Continue looping
+EndLoopTwo,	Load		X
+		SkipCond	400	/Exit if X at 0
+		Jump		LoopOne
+EndLoopOne,	Load		Sum	/Loading the final sum for output
+		Output
+		Halt
+Ctr,		Dec		0	/Counter
+N,		Dec		0	/User defined N
+X,		Dec		0	/Multiplication iterator variable
+Sum,		Dec		0	/Variable for maintaining the Sum
+Zero,		Dec		0	/Constant 0
+One,		Dec		1	/Constant 1
+		End
